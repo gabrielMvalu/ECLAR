@@ -11,10 +11,6 @@ st.header(':rainbow[Eclar STORY]')
 st.divider()
 
 
-with st.spinner(text="Building line"):
-    with open('timeline.json', "r") as f:
-        data = f.read()
-        timeline(data, height=500)
 
 # Funcția pentru generarea diagramei Pie
 def render_basic_pie_chart():
@@ -71,3 +67,8 @@ with column_1:
 with column_2:
     render_sales_line_chart()
 
+
+with st.spinner(text="Building line"):
+    with open('timeline.json', "r") as f:
+        data = f.read()
+        timeline(data, height=500)
