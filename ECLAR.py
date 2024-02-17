@@ -4,7 +4,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Pie, Line
 from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Map
-
+import json
 
 st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL -live sales-]')
