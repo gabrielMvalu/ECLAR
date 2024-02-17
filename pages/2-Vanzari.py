@@ -91,45 +91,31 @@ with tab1:
 
 # Conținut pentru Tab 2
 with tab2:
-    st.header(" :shield: Soluții Criptografice")
+    st.header("Soluții Criptografice")
     st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
 
-    # Definirea datelor pentru tabel
-    chart_data = pd.DataFrame({
-        'Date': ["2024-01-01", "2024-02-01", "2024-03-01"],
-        'Valori': [10, 20, 30]
-    })
-    
-    # Afișarea tabelului în Streamlit
-    st.table(chart_data)
-
-    # Definirea datelor pentru graficul Candlestick pentru o lună întreagă
-    try_attempts_data = [[99.98, 100, 99.97, 100] for _ in range(30)]
-    days = [f"Ziua {i+1}" for i in range(30)]
+    # Definirea datelor pentru graficul Candlestick cu variații mai mari pentru a vedea lumânările
+    try_attempts_data = [
+        [99.95, 100, 99.90, 100.05],  # Ziua 1
+        [99.96, 100, 99.91, 100.04],  # Ziua 2
+        [99.97, 100, 99.92, 100.03],  # Ziua 3
+        # Continuă pentru restul zilelor lunii
+    ]
+    days = [f"Ziua {i+1}" for i in range(30)]  # Presupunem 30 de zile în lună
 
     c = Kline()
     c.add_xaxis(days)
-    c.add_yaxis("Server Status", try_attempts_data, 
-                itemstyle_opts=opts.ItemStyleOpts(
-                    color="#00ff00",  # Culoare pentru creștere
-                    color0="#ff0000",  # Culoare pentru scădere (roșu)
-                    border_color="#00ff00",
-                    border_color0="#ff0000"
-                ))
+    c.add_yaxis("Server Status", try_attempts_data)
     c.set_global_opts(
-        title_opts=opts.TitleOpts(),
+        title_opts=opts.TitleOpts(title="Încercări de Spargere și Stabilitatea Serverului"),
         yaxis_opts=opts.AxisOpts(splitline_opts=opts.SplitLineOpts(is_show=True)),
-        xaxis_opts=opts.AxisOpts(is_scale=False),
+        xaxis_opts=opts.AxisOpts(is_scale=True),
         tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
         visualmap_opts=opts.VisualMapOpts(
-            dimension=2,
-            series_index=0,
-            is_piecewise=True,
-            pieces=[
-                {"value": 1, "color": "#ff0000"},  # Diferența roșie
-                {"value": 0, "color": "#00ff00"},  # Restul verzi
-            ],
-        ),
+            max_=100.05,
+            min_=99.90,
+            range_color=["#ff0000", "#00ff00"],
+        )
     )
 
     st_pyecharts(c)
