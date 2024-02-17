@@ -24,3 +24,14 @@ with elements("style_elements_css"):
             }
         }
     )
+with elements("callbacks_retrieve_data"):
+
+    if "my_text" not in st.session_state:
+        st.session_state.my_text = ""
+
+    def handle_change(event):
+        st.session_state.my_text = event.target.value
+
+    mui.Typography(st.session_state.my_text)
+
+    mui.TextField(label="Input some text here", onChange=handle_change)
