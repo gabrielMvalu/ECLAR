@@ -21,9 +21,9 @@ with elements("style_mui_sx"):
         "Some text in a styled box",
         sx={
             "bgcolor": "background.paper",
-            "boxShadow": 1,
-            "borderRadius": 2,
+            "boxShadow": 2,
+            "borderRadius": 5,
             "p": 2,
-            "minWidth": 300,
+            "minWidth": 200,
         }
     )
