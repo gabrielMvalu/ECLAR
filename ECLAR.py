@@ -3,7 +3,7 @@ from streamlit_timeline import timeline
 
 st.set_page_config(layout="wide")
 st.header(':rainbow[Eclar STORY]')
-st.divider
+st.divider()
 
 
 with st.spinner(text="Building line"):
