@@ -10,14 +10,7 @@ st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL -live sales-]')
 st.divider()
 
-# Definirea datelor pentru tabel
-chart_data = pd.DataFrame({
-    'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
-    'Valori': [10, 200, 30]
-})
 
-# Afișarea tabelului în Streamlit
-st.table(chart_data)
 
 
 # Funcția pentru generarea diagramei Pie
@@ -98,6 +91,15 @@ with tab1:
 with tab2:
     st.header("Soluții Criptografice")
     st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
+    
+    # Definirea datelor pentru tabel
+    chart_data = pd.DataFrame({
+        'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
+        'Valori': [10, 200, 30]
+    })
+    
+    # Afișarea tabelului în Streamlit
+    st.table(chart_data)
 
     try_attempts_data = [
         [100, 99.98, 99.98, 100],  # Ziua 1
