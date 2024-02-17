@@ -1,9 +1,8 @@
 import streamlit as st 
-from streamlit_timeline import timeline
 from pyecharts import options as opts
-from pyecharts.charts import Pie, Line
+from pyecharts.charts import Kline
 from streamlit_echarts import st_pyecharts
-from pyecharts.charts import Map
+
 
 
 st.set_page_config(layout="wide")
@@ -68,7 +67,7 @@ tab1, tab2, tab3 = st.tabs(["Vanzari lunare / anuale", "Siguranta Datelor", "Tab
 
 # Conținut pentru Tab 1
 with tab1:
-    st.header("Statistici și Previziuni în Timp Real")
+    st.header(":blue[Statistici și Previziuni în Timp Real]")
     st.info(""" Soluții avansate pentru importul și analiza datelor de vânzări. 
     Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, 
     optimizând în același timp procesele de vânzări și marketing.""")
@@ -86,14 +85,26 @@ with tab1:
 
 # Conținut pentru Tab 2
 with tab2:
-    st.header("Solutii Criptografice")
+    st.header(":shield: Soluții Criptografice")
     st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
 
-    chart_data = {
-        'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
-        'Valori': [10, 200, 30]
-    }
-    st.line_chart(chart_data)
+    try_attempts_data = [
+        [100, 99.98, 99.98, 100],  # Ziua 1
+        [100, 99.98, 99.98, 100],  # Ziua 2
+        [100, 99.98, 99.98, 100],  # Ziua 3
+    ]
+
+    c = Kline()
+    c.add_xaxis(["Ziua 1", "Ziua 2", "Ziua 3"])
+    c.add_yaxis("Server Status", try_attempts_data, itemstyle_opts=opts.ItemStyleOpts(color="#00ff00", color0="#00ff00", border_color="#00ff00", border_color0="#00ff00"))
+    c.set_global_opts(
+        title_opts=opts.TitleOpts(title="Încercări de Spargere și Stabilitatea Serverului"),
+        yaxis_opts=opts.AxisOpts(scale=True, splitline_opts=opts.SplitLineOpts(is_show=True)),
+        xaxis_opts=opts.AxisOpts(is_scale=True),
+        tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
+    )
+
+    st_pyecharts(c)
 
 
 with tab3:
