@@ -86,7 +86,7 @@ with tab1:
 
 # Conținut pentru Tab 2
 with tab2:
-    st.header(":shield: Soluții Criptografice")
+    st.header("Soluții Criptografice")
     st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
 
     try_attempts_data = [
@@ -100,7 +100,7 @@ with tab2:
     c.add_yaxis("Server Status", try_attempts_data, itemstyle_opts=opts.ItemStyleOpts(color="#00ff00", color0="#00ff00", border_color="#00ff00", border_color0="#00ff00"))
     c.set_global_opts(
         title_opts=opts.TitleOpts(title="Încercări de Spargere și Stabilitatea Serverului"),
-        yaxis_opts=opts.AxisOpts(scale=True, splitline_opts=opts.SplitLineOpts(is_show=True)),
+        yaxis_opts=opts.AxisOpts(splitline_opts=opts.SplitLineOpts(is_show=True)),
         xaxis_opts=opts.AxisOpts(is_scale=True),
         tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
     )
