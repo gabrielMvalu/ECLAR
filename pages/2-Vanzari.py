@@ -67,12 +67,9 @@ st.info(""" Soluții avansate pentru importul și analiza datelor de vânzări.
 Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, 
 optimizând în același timp procesele de vânzări și marketing.""")
 
-column_1, column_2 = st.columns(2)
+
+st.header(":rainbow[Vânzări luna curentă]")
+render_basic_pie_chart()
     
-with column_1:
-    st.header(":rainbow[Vânzări luna curentă]")
-    render_basic_pie_chart()
-    
-with column_2:
-    st.header(":rainbow[Vânzări 2023]")
-    render_sales_line_chart()
+st.header(":rainbow[Vânzări 2023]")
+render_sales_line_chart()
