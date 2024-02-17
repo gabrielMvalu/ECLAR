@@ -2,17 +2,89 @@
   "events": [
     {
       "start_date": {
-        "year": "2020",
+        "year": "2022",
         "month": "9"
       },
       "media": {
-        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2023/04/blue-galben2.jpg",
+        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2023/04/blue-blue.jpg",
         "credit": "Farmacia de detergent"
       },
       "text": {
         "headline": "Cutiuța 2 x Mireasma din Tei",
         "text": "10 litri la 179lei (*0.90lei / spălare)"
       }
+    },
+    {
+      "start_date": {
+        "year": "2022",
+        "month": "3"
+      },
+      "media": {
+        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2024/02/galben2-galben2.jpg",
+        "credit": "Farmacia de detergent"
+      },
+      "text": {
+        "headline": "10 litri la 179lei (*0.90lei / spălare)",
+              "text": "1 x 5L PROASPĂT CA MAREA,1 x 5L PARFUMAT CA POLENUL \n Testat Dermatologic – foarte bună compatibilitate cu pielea \n Livrarea este inclusă \n 200 de spălări în total \n la 4-5kg de rufe per spălare,Gel SuperDens \n Perfect pentru rufe albe, negre & colorate"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2022",
+        "month": "6"
+      },
+      "media": {
+        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2020/10/orange-orange-800x800.jpg",
+        "credit": "Farmacia de detergent"
+      },
+      "text": {
+        "headline": "10 litri la 179lei (*0.90lei / spălare)",
+        "text": "Descrierea evenimentului 3"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2022",
+        "month": "3"
+      },
+      "media": {
+        "url": "https://example.com/image4.jpg",
+        "credit": "Farmacia de detergent"
+      },
+      "text": {
+        "headline": "10 litri la 179lei (*0.90lei / spălare)",
+        "text": "Descrierea evenimentului 4"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2022",
+        "month": "1"
+      },
+      "media": {
+        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2020/10/blue-orange-2.jpg",
+        "credit": "Farmacia de detergent"
+      },
+      "text": {
+        "headline": "Cutiuța cu Detergent Gel “Mixtă”",
+        "text": "1 x 5L PROASPĂT CA MAREA,1 x 5L PARFUMAT CA POLENUL \n Testat Dermatologic – foarte bună compatibilitate cu pielea \n Livrarea este inclusă \n 200 de spălări în total \n la 4-5kg de rufe per spălare,Gel SuperDens \n Perfect pentru rufe albe, negre & colorate"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2022",
+        "month": "1"
+      },
+      "media": {
+        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2022/05/galben-galben-1.jpg",
+        "credit": "Farmacia de detergent"
+      },
+      "text": {
+        "headline": "10 litri la 179lei (*0.90lei / spălare)",
+        "text": "Farmacia de detergehn"
+      }
     }
   ]
 }
+
+
