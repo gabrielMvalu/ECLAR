@@ -27,12 +27,15 @@ def render_basic_pie_chart():
     products = ["Mireasma din Tei", "Proaspăt ca Marea", "Parfumat ca Polenul", "Zero Parfum"]
     
     # Valorile vânzărilor pentru fiecare produs
-    # Acestea sunt doar exemple; înlocuiește-le cu valorile reale ale vânzărilor
     sales_values = [100, 150, 200, 50]
-    
+
+    # Culorile personalizate pentru fiecare produs
+    custom_colors = ["#f7cb39", "#4dc4be", "#ed6347", "#b0a989"]
+
     c = (
         Pie()
         .add("", [list(z) for z in zip(products, sales_values)])
+        .set_colors(custom_colors)  # Setarea culorilor personalizate
         .set_global_opts()
         .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
     )
