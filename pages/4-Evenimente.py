@@ -52,7 +52,7 @@ with elements("dashboard"):
     layout = [
         # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
         dashboard.Item("first_item", 0, 0, 2, 2),
-        dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False),
+        dashboard.Item({st.session_state.my_text}, 2, 0, 2, 2, isDraggable=False, moved=False),
         dashboard.Item("third_item", 0, 2, 1, 1, isResizable=False),
     ]
 
@@ -60,7 +60,7 @@ with elements("dashboard"):
     # as first parameter, plus additional properties you can find in the GitHub links below.
 
     with dashboard.Grid(layout):
-        mui.Paper("First item", key="first_item")
+        mui.Paper({st.session_state.my_text}, key="first_item")
         mui.Paper("Second item (cannot drag)", key="second_item")
         mui.Paper("Third item (cannot resize)", key="third_item")
 
