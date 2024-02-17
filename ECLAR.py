@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_timeline import st_timeline
+from streamlit_timeline import timeline
 
 st.set_page_config(layout="wide")
 st.header(':rainbow[Eclar STORY]')
