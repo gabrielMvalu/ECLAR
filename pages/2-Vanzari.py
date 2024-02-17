@@ -1,4 +1,5 @@
 import streamlit as st 
+import pandas as pd
 from pyecharts import options as opts
 from pyecharts.charts import Kline
 from streamlit_echarts import st_pyecharts
