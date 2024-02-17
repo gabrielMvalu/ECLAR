@@ -8,6 +8,8 @@ from pyecharts.charts import Pie, Line
 
 
 st.set_page_config(layout="wide")
+st.image("./data/logoECLAR.png", width=100)
+
 st.divider()
 
 # Funcția pentru generarea diagramei Pie
