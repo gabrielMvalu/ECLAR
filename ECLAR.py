@@ -54,7 +54,7 @@ def render_sales_line_chart():
         .add_yaxis("Zero Parfum", sales_zero, is_smooth=True)
         .add_yaxis("Vânzări Totale", sales_total, is_smooth=True, linestyle_opts=opts.LineStyleOpts(width=2, type_="dotted"))
         .set_global_opts(
-            title_opts=opts.TitleOpts(title="Vânzări Produse pe Luna - 2023"),
+            title_opts=opts.TitleOpts(),
             yaxis_opts=opts.AxisOpts(name="Vânzări"),
             xaxis_opts=opts.AxisOpts(name="Lună")
         )
