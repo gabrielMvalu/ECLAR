@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL -live sales-]')
 st.divider()
 st.info('Datele se importa in timp real in functie de posibilitatile API curent folosit')
-st.succes(' predictii / comunicari interne / notificari de orice natura - sunt analizate si importate in timp real din server local')
+st.success(' predictii / comunicari interne / notificari de orice natura - sunt analizate si importate in timp real din server local')
 st.error('Datele sunt criptate local si nu pot fi sub nici un fel vazute din exterior. Criptarea este de ultima generatie atat pt evenimentele cloud cat si pt cele locale')
 
 
