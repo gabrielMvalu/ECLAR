@@ -7,7 +7,7 @@ from streamlit_echarts import st_pyecharts
 
 
 st.set_page_config(layout="wide")
-st.title('ECLAR SRL -live sales-')
+st.title(':blue[ECLAR SRL -live sales-]')
 st.divider()
 
 
