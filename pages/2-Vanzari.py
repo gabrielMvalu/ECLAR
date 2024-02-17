@@ -58,7 +58,7 @@ def render_sales_line_chart():
     # Setarea opțiunilor globale
     c.set_global_opts(
         title_opts=opts.TitleOpts(),
-        yaxis_opts=opts.AxisOpts(name="Vânzări"),
+        yaxis_opts=opts.AxisOpts(name="Vânzări anuale"),
         xaxis_opts=opts.AxisOpts(name="Lună")
     )
 
@@ -70,8 +70,7 @@ Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creș
 optimizând în același timp procesele de vânzări și marketing.""")
 
 
-st.header(":rainbow[Vânzări luna curentă]")
+
 render_basic_pie_chart()
     
-st.header(":rainbow[Vânzări 2023]")
 render_sales_line_chart()
