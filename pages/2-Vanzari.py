@@ -19,7 +19,7 @@ def render_basic_pie_chart():
     custom_colors = ["#f7cb39", "#4dc4be", "#ed6347", "#b0a989"]
     
     c = (
-        Pie(init_opts=opts.InitOpts(bg_color="grey"))
+        Pie()
         .add("", [list(z) for z in zip(products, sales_values)])
         .set_colors(custom_colors)
         .set_global_opts()
