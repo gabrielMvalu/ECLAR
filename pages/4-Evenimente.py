@@ -40,34 +40,62 @@ with elements("style_mui_sx"):
         }
     )
 
-with elements("monaco_editors"):
+with elements("nivo_charts"):
 
-    # Streamlit Elements embeds Monaco code and diff editor that powers Visual Studio Code.
-    # You can configure editor's behavior and features with the 'options' parameter.
-    #
-    # Streamlit Elements uses an unofficial React implementation (GitHub links below for
-    # documentation).
+    # Streamlit Elements includes 45 dataviz components powered by Nivo.
 
-    from streamlit_elements import editor
+    from streamlit_elements import nivo
 
-    if "content" not in st.session_state:
-        st.session_state.content = "Default value"
+    DATA = [
+        { "taste": "fruity", "chardonay": 93, "carmenere": 61, "syrah": 114 },
+        { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72 },
+        { "taste": "heavy", "chardonay": 56, "carmenere": 95, "syrah": 99 },
+        { "taste": "strong", "chardonay": 64, "carmenere": 90, "syrah": 30 },
+        { "taste": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103 },
+    ]
 
-    mui.Typography("Content: ", st.session_state.content)
-
-    def update_content(value):
-        st.session_state.content = value
-
-    editor.Monaco(
-        height=300,
-        defaultValue=st.session_state.content,
-        onChange=lazy(update_content)
-    )
-
-    mui.Button("Update content", onClick=sync())
-
-    editor.MonacoDiff(
-        original="Happy Streamlit-ing!",
-        modified="Happy Streamlit-in' with Elements!",
-        height=300,
-    )
+    with mui.Box(sx={"height": 500}):
+        nivo.Radar(
+            data=DATA,
+            keys=[ "chardonay", "carmenere", "syrah" ],
+            indexBy="taste",
+            valueFormat=">-.2f",
+            margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
+            borderColor={ "from": "color" },
+            gridLabelOffset=36,
+            dotSize=10,
+            dotColor={ "theme": "background" },
+            dotBorderWidth=2,
+            motionConfig="wobbly",
+            legends=[
+                {
+                    "anchor": "top-left",
+                    "direction": "column",
+                    "translateX": -50,
+                    "translateY": -40,
+                    "itemWidth": 80,
+                    "itemHeight": 20,
+                    "itemTextColor": "#999",
+                    "symbolSize": 12,
+                    "symbolShape": "circle",
+                    "effects": [
+                        {
+                            "on": "hover",
+                            "style": {
+                                "itemTextColor": "#000"
+                            }
+                        }
+                    ]
+                }
+            ],
+            theme={
+                "background": "#FFFFFF",
+                "textColor": "#31333F",
+                "tooltip": {
+                    "container": {
+                        "background": "#FFFFFF",
+                        "color": "#31333F",
+                    }
+                }
+            }
+        )
