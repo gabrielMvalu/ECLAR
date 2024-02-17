@@ -29,7 +29,7 @@ with elements("callbacks_retrieve_data"):
 with elements("style_elements_css"):
 
     html.div(
-        "{st.session_state.my_text}",
+        {st.session_state.my_text},
         css={
             "backgroundColor": "hotpink",
             "&:hover": {
