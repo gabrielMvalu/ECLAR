@@ -64,7 +64,7 @@ def render_sales_line_chart():
 
     st_pyecharts(c)
 
-st.header(":blue[Statistici și Previziuni în Timp Real]")
+st.header(":rainbow[Statistici și Previziuni în Timp Real]")
 st.info(""" Soluții avansate pentru importul și analiza datelor de vânzări. 
 Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, 
 optimizând în același timp procesele de vânzări și marketing.""")
