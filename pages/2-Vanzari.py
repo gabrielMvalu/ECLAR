@@ -117,9 +117,9 @@ with tab2:
                     border_color0="#ff0000"
                 ))
     c.set_global_opts(
-        title_opts=opts.TitleOpts(title="Încercări de Spargere și Stabilitatea Serverului"),
+        title_opts=opts.TitleOpts(),
         yaxis_opts=opts.AxisOpts(splitline_opts=opts.SplitLineOpts(is_show=True)),
-        xaxis_opts=opts.AxisOpts(is_scale=True),
+        xaxis_opts=opts.AxisOpts(is_scale=False),
         tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
         visualmap_opts=opts.VisualMapOpts(
             dimension=2,
