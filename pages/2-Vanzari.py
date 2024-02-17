@@ -10,6 +10,16 @@ st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL -live sales-]')
 st.divider()
 
+# Definirea datelor pentru tabel
+chart_data = pd.DataFrame({
+    'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
+    'Valori': [10, 200, 30]
+})
+
+# Afișarea tabelului în Streamlit
+st.table(chart_data)
+
+
 # Funcția pentru generarea diagramei Pie
 def render_basic_pie_chart():
     products = ["Mireasma din Tei", "Proaspăt ca Marea", "Parfumat ca Polenul", "Zero Parfum"]
