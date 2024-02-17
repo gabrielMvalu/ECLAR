@@ -98,10 +98,10 @@ with tab2:
     try_attempts_data = [
         [2, 100, 99.90, 110.05], 
         [100, 100, 99.91, 100.04], 
-        [915, 100, 99.92, 100.03],
-        [99.95, 100, 99.90, 100.05], 
-        [98.96, 100, 99.91, 120.04], 
-        [93.97, 100, 99.92, 110.03],
+        [95, 100, 99.92, 100.03],
+        [9.95, 100, 99.90, 100.05], 
+        [9.96, 100, 99.91, 120.04], 
+        [97, 100, 99.92, 110.03],
         [94.95, 100, 99.90, 100.05], 
         [91, 100, 99.91, 100.04], 
         [80, 100, 99.92, 100.03],
@@ -115,10 +115,10 @@ with tab2:
         [98.96, 100, 99.91, 120.04], 
         [93.97, 100, 99.92, 110.03],
         [94.95, 100, 99.90, 100.05], 
-        [9.96, 100, 99.91, 100.04], 
-        [8, 100, 99.92, 100.03],
-        [9, 100, 99.90, 100.05], 
-        [62, 100, 99.91, 100.04], 
+        [9.96, 10, 99.91, 100.04], 
+        [8, 10, 9.92, 100.03],
+        [9, 100, 9.90, 100.05], 
+        [2, 10, 99.91, 100.04], 
         [99, 100, 99.92, 101.03],
     
     ]
@@ -128,7 +128,7 @@ with tab2:
     c.add_xaxis(days)
     c.add_yaxis("Server Status", try_attempts_data)
     c.set_global_opts(
-        title_opts=opts.TitleOpts(title="Încercări de Spargere și Stabilitatea Serverului"),
+        title_opts=opts.TitleOpts(),
         yaxis_opts=opts.AxisOpts(splitline_opts=opts.SplitLineOpts(is_show=True)),
         xaxis_opts=opts.AxisOpts(is_scale=True),
         tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
