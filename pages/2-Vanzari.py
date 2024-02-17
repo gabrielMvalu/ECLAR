@@ -9,46 +9,6 @@ from pyecharts.charts import Map
 st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL -live sales-]')
 st.divider()
-st.info('Datele se importa in timp real in functie de posibilitatile API curent folosit')
-st.success(' predictii / comunicari interne / notificari de orice natura - sunt analizate si importate in timp real din server local')
-st.error('Datele sunt criptate local si nu pot fi sub nici un fel vazute din exterior. Criptarea este de ultima generatie atat pt evenimentele cloud cat si pt cele locale')
-
-
-# Crearea unui set de taburi
-tab1, tab2, tab3 = st.tabs(["Tab 1", "Tab 2", "Tab 3"])
-
-# Conținut pentru Tab 1
-with tab1:
-    st.header("Statistici și Previziuni în Timp Real")
-    st.write(""" CASTEMILL SRL oferă soluții avansate pentru importul și analiza datelor de vânzări, 
-    permițând accesul la statistici detaliate și previziuni în timp real. Prin integrarea facilă a 
-    seturilor de date, clienții pot obține o viziune cuprinzătoare asupra performanței vânzărilor, 
-    identificând tendințe și modele esențiale pentru luarea deciziilor strategice. Platforma noastră 
-    utilizează algoritmi de inteligență artificială și învățare automată pentru a oferi predicții precise, 
-    ajutându-vă să anticipați schimbările de pe piață și să vă adaptați strategiile în consecință. Cu CASTEMILL SRL, 
-    aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, optimizând în același timp procesele de vânzări și marketing.""")
-
-# Conținut pentru Tab 2
-with tab2:
-    st.header("Acesta este Tab 2")
-    st.write("Aici poți adăuga conținut pentru al doilea tab.")
-
-    chart_data = {
-        'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
-        'Valori': [10, 20, 30]
-    }
-    st.line_chart(chart_data)
-
-
-with tab3:
-    st.header("Acesta este Tab 3")
-    st.write("Aici poți adăuga conținut pentru al treilea tab.")
-
-    st.table(chart_data)
-
-
-
-
 
 # Funcția pentru generarea diagramei Pie
 def render_basic_pie_chart():
@@ -64,7 +24,6 @@ def render_basic_pie_chart():
         .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
     )
     st_pyecharts(c)
-
 
 
 
@@ -104,14 +63,47 @@ def render_sales_line_chart():
     st_pyecharts(c)
 
 
+# Crearea unui set de taburi
+tab1, tab2, tab3 = st.tabs(["Vanzari lunare / anuale", "Tab 2", "Tab 3"])
 
-# Crearea coloanelor și afișarea graficelor
-column_1, column_2 = st.columns(2)
+# Conținut pentru Tab 1
+with tab1:
+    st.header("Statistici și Previziuni în Timp Real")
+    st.info(""" CASTEMILL SRL oferă soluții avansate pentru importul și analiza datelor de vânzări, 
+    permițând accesul la statistici detaliate și previziuni în timp real. Prin integrarea facilă a 
+    seturilor de date, clienții pot obține o viziune cuprinzătoare asupra performanței vânzărilor, 
+    identificând tendințe și modele esențiale pentru luarea deciziilor strategice. Platforma noastră 
+    utilizează algoritmi de inteligență artificială și învățare automată pentru a oferi predicții precise, 
+    ajutându-vă să anticipați schimbările de pe piață și să vă adaptați strategiile în consecință. Cu CASTEMILL SRL, 
+    aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, optimizând în același timp procesele de vânzări și marketing.""")
 
-with column_1:
-    st.header(":rainbow[Vânzări luna curentă]")
-    render_basic_pie_chart()
+    column_1, column_2 = st.columns(2)
+    
+    with column_1:
+        st.header(":rainbow[Vânzări luna curentă]")
+        render_basic_pie_chart()
+    
+    with column_2:
+        st.header(":rainbow[Vânzări 2023]")
+        render_sales_line_chart()
 
-with column_2:
-    st.header(":rainbow[Vânzări 2023]")
-    render_sales_line_chart()
+
+# Conținut pentru Tab 2
+with tab2:
+    st.header("Acesta este Tab 2")
+    st.write("Aici poți adăuga conținut pentru al doilea tab.")
+
+    chart_data = {
+        'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
+        'Valori': [10, 20, 30]
+    }
+    st.line_chart(chart_data)
+
+
+with tab3:
+    st.header("Acesta este Tab 3")
+    st.write("Aici poți adăuga conținut pentru al treilea tab.")
+
+    st.table(chart_data)
+
+
