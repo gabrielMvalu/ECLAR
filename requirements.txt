@@ -8,3 +8,4 @@ streamlit
 streamlit_timeline
 streamlit-player
 typing-extensions
+streamlit-echarts
