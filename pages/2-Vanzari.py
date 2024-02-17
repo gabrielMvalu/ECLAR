@@ -40,7 +40,7 @@ def render_sales_line_chart():
     sales_mireasma = [0, 0, 0, 0, 0, 120, 150, 100, 230, 240, 270, 265]
     sales_proaspat = [80, 100, 120, 140, 160, 180, 200, 220, 200, 180, 160, 140]
     sales_parfumat = [50, 70, 90, 110, 130, 120, 110, 100, 90, 80, 70, 60]
-    sales_zero = [200, 180, 160, 140, 120, 100, 80, 60, 40, 20, 10, 5]
+    sales_zero = [20, 100, 60, 40, 120, 100, 110, 60, 40, 80, 10, 70]
 
     # Calcularea vânzărilor totale pentru fiecare lună
     sales_total = [sum(x) for x in zip(sales_mireasma, sales_proaspat, sales_parfumat, sales_zero)]
