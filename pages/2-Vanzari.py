@@ -64,18 +64,14 @@ def render_sales_line_chart():
 
 
 # Crearea unui set de taburi
-tab1, tab2, tab3 = st.tabs(["Vanzari lunare / anuale", "Tab 2", "Tab 3"])
+tab1, tab2, tab3 = st.tabs(["Vanzari lunare / anuale", "Siguranta Datelor", "Tab 3"])
 
 # Conținut pentru Tab 1
 with tab1:
     st.header("Statistici și Previziuni în Timp Real")
-    st.info(""" CASTEMILL SRL oferă soluții avansate pentru importul și analiza datelor de vânzări, 
-    permițând accesul la statistici detaliate și previziuni în timp real. Prin integrarea facilă a 
-    seturilor de date, clienții pot obține o viziune cuprinzătoare asupra performanței vânzărilor, 
-    identificând tendințe și modele esențiale pentru luarea deciziilor strategice. Platforma noastră 
-    utilizează algoritmi de inteligență artificială și învățare automată pentru a oferi predicții precise, 
-    ajutându-vă să anticipați schimbările de pe piață și să vă adaptați strategiile în consecință. Cu CASTEMILL SRL, 
-    aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, optimizând în același timp procesele de vânzări și marketing.""")
+    st.info(""" Soluții avansate pentru importul și analiza datelor de vânzări. 
+    Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, 
+    optimizând în același timp procesele de vânzări și marketing.""")
 
     column_1, column_2 = st.columns(2)
     
@@ -90,12 +86,12 @@ with tab1:
 
 # Conținut pentru Tab 2
 with tab2:
-    st.header("Acesta este Tab 2")
-    st.write("Aici poți adăuga conținut pentru al doilea tab.")
+    st.header("Solutii Criptografice")
+    st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
 
     chart_data = {
         'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
-        'Valori': [10, 20, 30]
+        'Valori': [10, 200, 30]
     }
     st.line_chart(chart_data)
 
