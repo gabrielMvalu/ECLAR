@@ -33,7 +33,7 @@ def render_basic_pie_chart():
     c = (
         Pie()
         .add("", [list(z) for z in zip(products, sales_values)])
-        .set_global_opts(title_opts=opts.TitleOpts(title="Vânzări Produse per Luna Curentă"))
+        .set_global_opts()
         .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
     )
     st_pyecharts(c)
