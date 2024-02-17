@@ -3,20 +3,6 @@ import streamlit as st
 
 with elements("style_mui_sx"):
 
-    # For Material UI elements, use the 'sx' property.
-    #
-    # <Box
-    #   sx={{
-    #     bgcolor: 'background.paper',
-    #     boxShadow: 1,
-    #     borderRadius: 2,
-    #     p: 2,
-    #     minWidth: 300,
-    #   }}
-    # >
-    #   Some text in a styled box
-    # </Box>
-
     mui.Box(
         "Some text in a styled box",
         sx={
@@ -25,5 +11,16 @@ with elements("style_mui_sx"):
             "borderRadius": 5,
             "p": 2,
             "minWidth": 200,
+        }
+    )
+with elements("style_elements_css"):
+
+    html.div(
+        "This has a hotpink background",
+        css={
+            "backgroundColor": "hotpink",
+            "&:hover": {
+                "color": "lightgreen"
+            }
         }
     )
