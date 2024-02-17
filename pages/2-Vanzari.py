@@ -66,86 +66,17 @@ def render_sales_line_chart():
 
     st_pyecharts(c)
 
+st.header(":blue[Statistici și Previziuni în Timp Real]")
+st.info(""" Soluții avansate pentru importul și analiza datelor de vânzări. 
+Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, 
+optimizând în același timp procesele de vânzări și marketing.""")
 
-# Crearea unui set de taburi
-tab1, tab2 = st.tabs(["Vanzari lunare / anuale", "Siguranta Datelor"])
-
-# Conținut pentru Tab 1
-with tab1:
-    st.header(":blue[Statistici și Previziuni în Timp Real]")
-    st.info(""" Soluții avansate pentru importul și analiza datelor de vânzări. 
-    Cu CASTEMILL SRL, aveți la dispoziție uneltele necesare pentru a stimula creșterea afacerii, 
-    optimizând în același timp procesele de vânzări și marketing.""")
-
-    column_1, column_2 = st.columns(2)
+column_1, column_2 = st.columns(2)
     
-    with column_1:
-        st.header(":rainbow[Vânzări luna curentă]")
-        render_basic_pie_chart()
+with column_1:
+    st.header(":rainbow[Vânzări luna curentă]")
+    render_basic_pie_chart()
     
-    with column_2:
-        st.header(":rainbow[Vânzări 2023]")
-        render_sales_line_chart()
-
-
-
-# Conținut pentru Tab 2
-with tab2:
-    st.header(":shield: Soluții Criptografice")
-    st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
-
-    # Definirea datelor pentru graficul Candlestick cu variații mai mari pentru a vedea lumânările
-    try_attempts_data = [
-        [2, 100, 99.90, 110.05], 
-        [100, 100, 99.91, 100.04], 
-        [95, 100, 99.92, 100.03],
-        [9.95, 100, 99.90, 100.05], 
-        [9.96, 100, 99.91, 120.04], 
-        [97, 100, 99.92, 110.03],
-        [94.95, 100, 99.90, 100.05], 
-        [91, 100, 99.91, 100.04], 
-        [80, 100, 99.92, 100.03],
-        [13, 100, 99.90, 100.05], 
-        [96, 100, 99.91, 100.04], 
-        [10, 100, 99.92, 101.03],
-        [99.99, 100, 99.90, 100.05], 
-        [100, 100, 99.91, 100.04], 
-        [91.97, 100, 99.92, 100.03],
-        [99.95, 100, 99.90, 100.05], 
-        [98.96, 100, 99.91, 120.04], 
-        [93.97, 100, 99.92, 110.03],
-        [94.95, 100, 99.90, 100.05], 
-        [9.96, 10, 99.91, 100.04], 
-        [8, 10, 9.92, 100.03],
-        [9, 100, 9.90, 100.05], 
-        [2, 10, 99.91, 100.04], 
-        [99, 100, 99.92, 101.03],
-        [2, 100, 99.90, 110.05], 
-        [100, 100, 99.91, 100.04], 
-        [95, 100, 99.92, 100.03],
-        [9.95, 100, 99.90, 100.05], 
-        [9.96, 100, 99.91, 120.04], 
-        [97, 100, 99.92, 110.03],
-        [94.95, 100, 99.90, 100.05],
-    
-    ]
-    days = [f"Ziua {i+1}" for i in range(30)]  # Presupunem 30 de zile în lună
-
-    c = Kline()
-    c.add_xaxis(days)
-    c.add_yaxis("Server Status", try_attempts_data)
-    c.set_global_opts(
-        title_opts=opts.TitleOpts(),
-        yaxis_opts=opts.AxisOpts(splitline_opts=opts.SplitLineOpts(is_show=True)),
-        xaxis_opts=opts.AxisOpts(is_scale=True),
-        tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
-        visualmap_opts=opts.VisualMapOpts(
-            max_=100.05,
-            min_=99.90,
-            range_color=["#ff0000", "#00ff00"],
-        )
-    )
-
-    st_pyecharts(c)
-
-
+with column_2:
+    st.header(":rainbow[Vânzări 2023]")
+    render_sales_line_chart()
