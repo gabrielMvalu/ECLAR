@@ -68,11 +68,11 @@ def render_sales_line_chart():
 column_1, column_2 = st.columns(2)
 
 with column_1:
-    st.header(":rainbow[Vânzări Produse - pentru luna curenta]")
+    st.header(":rainbow[Vânzări luna curentă]")
     render_basic_pie_chart()
 
 with column_2:
-    st.header(":rainbow[Vânzări Lunare pe Anul 2023]")
+    st.header(":rainbow[Vânzări 2023]")
     render_sales_line_chart()
 
 
