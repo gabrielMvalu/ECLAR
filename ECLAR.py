@@ -84,7 +84,7 @@ with st.spinner(text="Building line"):
 
 
 # Presupunând că ai un fișier GeoJSON pentru România și date reale de vânzări
-with open("./data/romania.geojson", "r") as f:
+with open("./data/romania.geo.json", "r") as f:
     romania_geojson = json.loads(f.read())
 
 # Presupunând că ai date de vânzări pentru diferite regiuni din România
