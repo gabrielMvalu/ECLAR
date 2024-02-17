@@ -92,7 +92,7 @@ regions = ["București", "Cluj", "Iași", "Timișoara", "Constanța"]
 sales_values = [100, 80, 60, 40, 20]  # Valorile sunt doar pentru exemplu
 
 c = Map(init_opts=opts.InitOpts(bg_color="white"))
-c.add("Vânzări", [list(z) for z in zip(regions, sales_values)], "RO")
+c.add("Vânzări", [list(z) for z in zip(regions, sales_values)], "world")
 c.set_series_opts(label_opts=opts.LabelOpts(is_show=False))
 c.set_global_opts(
     title_opts=opts.TitleOpts(title="Vânzări în România"),
