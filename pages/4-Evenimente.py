@@ -15,17 +15,16 @@ with elements("callbacks_retrieve_data"):
 
     mui.TextField(label="Input some text here", onChange=handle_change)
 
-with elements("style_elements_css"):
+with elements("media_player"):
 
-    html.div(
-        {st.session_state.my_text},
-        css={
-            "backgroundColor": "hotpink",
-            "&:hover": {
-                "color": "lightgreen"
-            }
-        }
-    )
+    # Play video from many third-party sources: YouTube, Facebook, Twitch,
+    # SoundCloud, Streamable, Vimeo, Wistia, Mixcloud, DailyMotion and Kaltura.
+    #
+    # This element is powered by ReactPlayer (GitHub link below).
+
+    from streamlit_elements import media
+
+    media.Player(url="https://www.youtube.com/watch?v=iik25wqIuFo", controls=True)
 
 with elements("style_mui_sx"):
 
