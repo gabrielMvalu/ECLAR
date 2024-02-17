@@ -14,7 +14,7 @@ items = [
     {"id": 6, "content": "2022-10-27", "start": "2022-10-27"},
 ]
 
-timeline = timeline(items, groups=[], options={}, height="300px")
+timeline = st.timeline(items, groups=[], options={}, height="300px")
 st.subheader("Selected item")
 st.write(timeline)
 
