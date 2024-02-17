@@ -2,6 +2,7 @@ import streamlit as st
 from pyecharts import options as opts
 from pyecharts.charts import Kline
 from streamlit_echarts import st_pyecharts
+from pyecharts.charts import Pie
 
 
 
