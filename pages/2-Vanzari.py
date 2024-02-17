@@ -88,34 +88,48 @@ with tab1:
         render_sales_line_chart()
 
 
+
 # Conținut pentru Tab 2
 with tab2:
-    st.header("Soluții Criptografice")
+    st.header(" :shield: Soluții Criptografice")
     st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
-    
+
     # Definirea datelor pentru tabel
     chart_data = pd.DataFrame({
-        'Date': ["2024-01-01", "2024-01-02", "2024-01-03"],
-        'Valori': [10, 200, 30]
+        'Date': ["2024-01-01", "2024-02-01", "2024-03-01"],
+        'Valori': [10, 20, 30]
     })
     
     # Afișarea tabelului în Streamlit
     st.table(chart_data)
 
-    try_attempts_data = [
-        [100, 99.98, 99.98, 100],  # Ziua 1
-        [100, 99.98, 99.98, 100],  # Ziua 2
-        [100, 99.98, 99.98, 100],  # Ziua 3
-    ]
+    # Definirea datelor pentru graficul Candlestick pentru o lună întreagă
+    try_attempts_data = [[99.98, 100, 99.97, 100] for _ in range(30)]
+    days = [f"Ziua {i+1}" for i in range(30)]
 
     c = Kline()
-    c.add_xaxis(["Ziua 1", "Ziua 2", "Ziua 3"])
-    c.add_yaxis("Server Status", try_attempts_data, itemstyle_opts=opts.ItemStyleOpts(color="#00ff00", color0="#00ff00", border_color="#00ff00", border_color0="#00ff00"))
+    c.add_xaxis(days)
+    c.add_yaxis("Server Status", try_attempts_data, 
+                itemstyle_opts=opts.ItemStyleOpts(
+                    color="#00ff00",  # Culoare pentru creștere
+                    color0="#ff0000",  # Culoare pentru scădere (roșu)
+                    border_color="#00ff00",
+                    border_color0="#ff0000"
+                ))
     c.set_global_opts(
         title_opts=opts.TitleOpts(title="Încercări de Spargere și Stabilitatea Serverului"),
         yaxis_opts=opts.AxisOpts(splitline_opts=opts.SplitLineOpts(is_show=True)),
         xaxis_opts=opts.AxisOpts(is_scale=True),
         tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross"),
+        visualmap_opts=opts.VisualMapOpts(
+            dimension=2,
+            series_index=0,
+            is_piecewise=True,
+            pieces=[
+                {"value": 1, "color": "#ff0000"},  # Diferența roșie
+                {"value": 0, "color": "#00ff00"},  # Restul verzi
+            ],
+        ),
     )
 
     st_pyecharts(c)
