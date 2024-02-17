@@ -7,7 +7,7 @@ from streamlit_echarts import st_pyecharts
 
 
 st.set_page_config(layout="wide")
-st.header(':rainbow[Eclar STORY]')
+st.title('ECLAR SRL -live sales-')
 st.divider()
 
 
@@ -62,11 +62,11 @@ def render_sales_line_chart():
 column_1, column_2 = st.columns(2)
 
 with column_1:
-    st.header("Vânzări Produse - pentru luna curenta")
+    st.header(":rainbow[Vânzări Produse - pentru luna curenta]")
     render_basic_pie_chart()
 
 with column_2:
-    st.header("Vânzări Lunare pe Anul 2023 ")
+    st.header(":rainbow[Vânzări Lunare pe Anul 2023]")
     render_sales_line_chart()
 
 
