@@ -1,1 +1,18 @@
-{"events": [{"start_date":{"year":"2020","month":"9"},"media":{"url":" https://farmaciadedetergent.ro/wp-content/uploads/2023/04/blue-galben2.jpg","credit":"Farmacia de detergent"},"text":{"headline":"Cutiuța 2 x Mireasma din Tei","text":"10 litri la 179lei (*0.90lei / spălare)"}} 
+{
+  "events": [
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "9"
+      },
+      "media": {
+        "url": "https://farmaciadedetergent.ro/wp-content/uploads/2023/04/blue-galben2.jpg",
+        "credit": "Farmacia de detergent"
+      },
+      "text": {
+        "headline": "Cutiuța 2 x Mireasma din Tei",
+        "text": "10 litri la 179lei (*0.90lei / spălare)"
+      }
+    }
+  ]
+}
