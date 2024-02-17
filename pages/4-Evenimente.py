@@ -24,7 +24,7 @@ with elements("media_player"):
 
     from streamlit_elements import media
 
-    media.Player(url="https://www.youtube.com/watch?v=iik25wqIuFo", controls=True)
+    media.Player(url="https://www.youtube.com/watch?v=iik25wqIuFo", controls=False)
 
 with elements("style_mui_sx"):
 
