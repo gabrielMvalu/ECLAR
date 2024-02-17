@@ -40,51 +40,39 @@ with elements("style_mui_sx"):
         }
     )
 
+with elements("dashboard"):
 
-with elements("callbacks_lazy"):
+    # You can create a draggable and resizable dashboard using
+    # any element available in Streamlit Elements.
 
-    # With the two first examples, each time you input a letter into the text field,
-    # the callback is invoked but the whole app is reloaded as well.
-    #
-    # To avoid reloading the whole app on every input, you can wrap your callback with
-    # lazy(). This will defer the callback invocation until another non-lazy callback
-    # is invoked. This can be useful to implement forms.
+    from streamlit_elements import dashboard
 
-    from streamlit_elements import lazy
+    # First, build a default layout for every element you want to include in your dashboard
 
-    if "first_name" not in st.session_state:
-        st.session_state.first_name = None
-        st.session_state.last_name = None
+    layout = [
+        # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
+        dashboard.Item("first_item", 0, 0, 2, 2),
+        dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False),
+        dashboard.Item("third_item", 0, 2, 1, 1, isResizable=False),
+    ]
 
-    if st.session_state.first_name is not None:
-        first_name = st.session_state.first_name.target.value
-    else:
-        first_name = "John"
+    # Next, create a dashboard layout using the 'with' syntax. It takes the layout
+    # as first parameter, plus additional properties you can find in the GitHub links below.
 
-    if st.session_state.last_name is not None:
-        last_name = st.session_state.last_name.target.value
-    else:
-        last_name = "Doe"
+    with dashboard.Grid(layout):
+        mui.Paper("First item", key="first_item")
+        mui.Paper("Second item (cannot drag)", key="second_item")
+        mui.Paper("Third item (cannot resize)", key="third_item")
 
-    def set_last_name(event):
-        st.session_state.last_name = event
+    # If you want to retrieve updated layout values as the user move or resize dashboard items,
+    # you can pass a callback to the onLayoutChange event parameter.
 
-    # Display first name and last name
-    mui.Typography("Your first name: ", first_name)
-    mui.Typography("Your last name: ", last_name)
+    def handle_layout_change(updated_layout):
+        # You can save the layout in a file, or do anything you want with it.
+        # You can pass it back to dashboard.Grid() if you want to restore a saved layout.
+        print(updated_layout)
 
-    # Lazily synchronize onChange with first_name and last_name state.
-    # Inputting some text won't synchronize the value yet.
-    mui.TextField(label="First name", onChange=lazy(sync("first_name")))
-
-    # You can also pass regular python functions to lazy().
-    mui.TextField(label="Last name", onChange=lazy(set_last_name))
-
-    # Here we give a non-lazy callback to onClick using sync().
-    # We are not interested in getting onClick event data object,
-    # so we call sync() with no argument.
-    #
-    # You can use either sync() or a regular python function.
-    # As long as the callback is not wrapped with lazy(), its invocation will
-    # also trigger every other defered callbacks.
-    mui.Button("Update first namd and last name", onClick=sync())
+    with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
+        mui.Paper("First item", key="first_item")
+        mui.Paper("Second item (cannot drag)", key="second_item")
+        mui.Paper("Third item (cannot resize)", key="third_item")
