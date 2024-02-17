@@ -4,7 +4,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Pie, Line
 from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Map
-import json
+
 
 st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL -live sales-]')
@@ -79,24 +79,4 @@ with column_2:
 with st.spinner(text="Building line"):
     with open('timeline.json', "r") as f:
         data = f.read()
-        timeline(data, height=500)
-
-
-
-# Presupunând că ai un fișier GeoJSON pentru România și date reale de vânzări
-with open("./data/countries.geo.json", "r") as f:
-    romania_geojson = json.loads(f.read())
-
-# Presupunând că ai date de vânzări pentru diferite regiuni din România
-regions = ["București", "Cluj", "Iași", "Timișoara", "Constanța"]
-sales_values = [100, 80, 60, 40, 20]  # Valorile sunt doar pentru exemplu
-
-c = Map(init_opts=opts.InitOpts(bg_color="white"))
-c.add("Vânzări", [list(z) for z in zip(regions, sales_values)], "world")
-c.set_series_opts(label_opts=opts.LabelOpts(is_show=False))
-c.set_global_opts(
-    title_opts=opts.TitleOpts(title="Vânzări în România"),
-    visualmap_opts=opts.VisualMapOpts(max_=200),
-)
-
-st_pyecharts(c, height=500)
+        timeline(data, height=400)
