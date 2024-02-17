@@ -7,7 +7,8 @@ from pyecharts.charts import Map
 
 
 st.set_page_config(layout="wide")
-st.title(':blue[ECLAR SRL -live sales-]')
+st.title(':blue[Farmacia de detergent]')
+st.subheader('pagina demonstrativa statistici / date locale / evenimente / etc.')
 st.divider()
 
 
