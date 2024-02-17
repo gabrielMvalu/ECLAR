@@ -93,7 +93,7 @@ with tab1:
 # Conținut pentru Tab 2
 with tab2:
     st.header(":shield: Soluții Criptografice")
-    st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicațiile ECLAR SRL")
+    st.success("Implementare servere interne cu criptografie de ultimă generație, asigurând o securitate impenetrabilă pentru datele și comunicații")
 
     # Definirea datelor pentru graficul Candlestick cu variații mai mari pentru a vedea lumânările
     try_attempts_data = [
