@@ -39,3 +39,19 @@ with elements("style_mui_sx"):
             "minWidth": 200,
         }
     )
+
+
+with elements("callbacks_sync"):
+
+    from streamlit_elements import sync
+
+    if "my_event" not in st.session_state:
+        st.session_state.my_event = None
+
+    if st.session_state.my_event is not None:
+        text = st.session_state.my_event.target.value
+    else:
+        text = ""
+
+    mui.Typography(text)
+    mui.TextField(label="Input some text here", onChange=sync("my_event"))
