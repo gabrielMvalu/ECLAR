@@ -55,7 +55,7 @@ with elements("nivo_charts"):
 
     with mui.Box(sx={"height": 500}):
         nivo.ResponsiveCalendar
-            data={data}
+            data=DATA
             from="2015-03-01"
             to="2016-07-12"
             emptyColor="#eeeeee"
