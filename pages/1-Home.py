@@ -3,7 +3,6 @@ from streamlit_timeline import timeline
 
 st.set_page_config(layout="wide")
 st.title(':blue[ECLAR SRL]')
-st.subheader('pagina demonstrativa statistici / date locale / evenimente / etc.')
 st.divider()
 
 
