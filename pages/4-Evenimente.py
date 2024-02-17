@@ -54,28 +54,47 @@ with elements("nivo_charts"):
     ]
 
     with mui.Box(sx={"height": 500}):
-        nivo.ResponsiveCalendar
-            data=DATA
-            from="2015-03-01"
-            to="2016-07-12"
-            emptyColor="#eeeeee"
-            colors={[ '#61cdbb', '#97e3d5', '#e8c1a0', '#f47560' ]}
-            margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
-            yearSpacing={40}
-            monthBorderColor="#ffffff"
-            dayBorderWidth={2}
-            dayBorderColor="#ffffff"
-            legends={[
+        nivo.Radar(
+            data=DATA,
+            keys=[ "chardonay", "carmenere", "syrah" ],
+            indexBy="taste",
+            valueFormat=">-.2f",
+            margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
+            borderColor={ "from": "color" },
+            gridLabelOffset=36,
+            dotSize=10,
+            dotColor={ "theme": "background" },
+            dotBorderWidth=2,
+            motionConfig="wobbly",
+            legends=[
                 {
-                    anchor: 'bottom-right',
-                    direction: 'row',
-                    translateY: 36,
-                    itemCount: 4,
-                    itemWidth: 42,
-                    itemHeight: 36,
-                    itemsSpacing: 14,
-                    itemDirection: 'right-to-left'
+                    "anchor": "top-left",
+                    "direction": "column",
+                    "translateX": -50,
+                    "translateY": -40,
+                    "itemWidth": 80,
+                    "itemHeight": 20,
+                    "itemTextColor": "#999",
+                    "symbolSize": 12,
+                    "symbolShape": "circle",
+                    "effects": [
+                        {
+                            "on": "hover",
+                            "style": {
+                                "itemTextColor": "#000"
+                            }
+                        }
+                    ]
                 }
-            ]}
-        />
-    )
+            ],
+            theme={
+                "background": "black",
+                "textColor": "#31333F",
+                "tooltip": {
+                    "container": {
+                        "background": "#FFFFFF",
+                        "color": "#31333F",
+                    }
+                }
+            }
+        )
