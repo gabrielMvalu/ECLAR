@@ -12,7 +12,7 @@ with col1:
 
 # În a doua coloană, afișează titlul
 with col2:
-    st.title(":blue:[ECLAR SRL]")
+    st.header(":blue:[ECLAR SRL]")
 
 st.divider()
 
