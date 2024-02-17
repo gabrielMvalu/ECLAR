@@ -68,7 +68,7 @@ def render_sales_line_chart():
 
 
 # Crearea unui set de taburi
-tab1, tab2, tab3 = st.tabs(["Vanzari lunare / anuale", "Siguranta Datelor", "Tab 3"])
+tab1, tab2 = st.tabs(["Vanzari lunare / anuale", "Siguranta Datelor"])
 
 # Conținut pentru Tab 1
 with tab1:
@@ -96,10 +96,31 @@ with tab2:
 
     # Definirea datelor pentru graficul Candlestick cu variații mai mari pentru a vedea lumânările
     try_attempts_data = [
-        [99.95, 100, 99.90, 100.05],  # Ziua 1
-        [99.96, 100, 99.91, 100.04],  # Ziua 2
-        [99.97, 100, 99.92, 100.03],  # Ziua 3
-        # Continuă pentru restul zilelor lunii
+        [99.99, 100, 99.90, 100.05], 
+        [100, 100, 99.91, 100.04], 
+        [91.97, 100, 99.92, 100.03],
+        [99.95, 100, 99.90, 100.05], 
+        [98.96, 100, 99.91, 120.04], 
+        [93.97, 100, 99.92, 110.03],
+        [94.95, 100, 99.90, 100.05], 
+        [99.96, 100, 99.91, 100.04], 
+        [80, 100, 99.92, 100.03],
+        [95, 100, 99.90, 100.05], 
+        [96, 100, 99.91, 100.04], 
+        [99, 100, 99.92, 101.03],
+        [99.99, 100, 99.90, 100.05], 
+        [100, 100, 99.91, 100.04], 
+        [91.97, 100, 99.92, 100.03],
+        [99.95, 100, 99.90, 100.05], 
+        [98.96, 100, 99.91, 120.04], 
+        [93.97, 100, 99.92, 110.03],
+        [94.95, 100, 99.90, 100.05], 
+        [99.96, 100, 99.91, 100.04], 
+        [80, 100, 99.92, 100.03],
+        [95, 100, 99.90, 100.05], 
+        [96, 100, 99.91, 100.04], 
+        [99, 100, 99.92, 101.03],
+    
     ]
     days = [f"Ziua {i+1}" for i in range(30)]  # Presupunem 30 de zile în lună
 
@@ -119,12 +140,5 @@ with tab2:
     )
 
     st_pyecharts(c)
-
-
-with tab3:
-    st.header("Acesta este Tab 3")
-    st.write("Aici poți adăuga conținut pentru al treilea tab.")
-
-    st.table(chart_data)
 
 
