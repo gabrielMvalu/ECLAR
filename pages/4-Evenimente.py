@@ -13,17 +13,7 @@ with elements("style_mui_sx"):
             "minWidth": 200,
         }
     )
-with elements("style_elements_css"):
 
-    html.div(
-        "This has a hotpink background",
-        css={
-            "backgroundColor": "hotpink",
-            "&:hover": {
-                "color": "lightgreen"
-            }
-        }
-    )
 with elements("callbacks_retrieve_data"):
 
     if "my_text" not in st.session_state:
@@ -35,3 +25,15 @@ with elements("callbacks_retrieve_data"):
     mui.Typography(st.session_state.my_text)
 
     mui.TextField(label="Input some text here", onChange=handle_change)
+
+with elements("style_elements_css"):
+
+    html.div(
+        "{st.session_state.my_text}",
+        css={
+            "backgroundColor": "hotpink",
+            "&:hover": {
+                "color": "lightgreen"
+            }
+        }
+    )
