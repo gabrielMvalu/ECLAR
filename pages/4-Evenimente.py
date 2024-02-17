@@ -1,18 +1,7 @@
 from streamlit_elements import elements, mui, html
 import streamlit as st
 
-with elements("style_mui_sx"):
 
-    mui.Box(
-        "Some text in a styled box",
-        sx={
-            "bgcolor": "background.paper",
-            "boxShadow": 2,
-            "borderRadius": 5,
-            "p": 2,
-            "minWidth": 200,
-        }
-    )
 
 with elements("callbacks_retrieve_data"):
 
@@ -35,5 +24,18 @@ with elements("style_elements_css"):
             "&:hover": {
                 "color": "lightgreen"
             }
+        }
+    )
+
+with elements("style_mui_sx"):
+
+    mui.Box(
+         {st.session_state.my_text},
+        sx={
+            "bgcolor": "background.paper",
+            "boxShadow": 2,
+            "borderRadius": 5,
+            "p": 2,
+            "minWidth": 200,
         }
     )
