@@ -8,6 +8,13 @@ st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
 
+st.info("""
+Mai jos sunt prezentate două hărți interactive concepute pentru a transforma datele complexe ale comenzilor în 
+informații vizuale ușor de interpretat, cu scopul de a sprijini procesul de luare a deciziilor în cadrul 
+organizației dumneavoastră.Aceste hărți oferă o perspectivă clară asupra distribuției geografice a vânzărilor
+și livrărilor, elemente esențiale în planificarea și optimizarea campaniilor de marketing.
+""")
+
 def hex_to_rgba(hex_color, alpha=255):
     """Converteste o culoare hexadecimale într-un tuple RGBA."""
     hex_color = hex_color.lstrip('#')
