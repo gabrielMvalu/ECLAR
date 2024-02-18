@@ -15,16 +15,6 @@ with elements("callbacks_retrieve_data"):
 
     mui.TextField(label="Input some text here", onChange=handle_change)
 
-with elements("media_player"):
-
-    # Play video from many third-party sources: YouTube, Facebook, Twitch,
-    # SoundCloud, Streamable, Vimeo, Wistia, Mixcloud, DailyMotion and Kaltura.
-    #
-    # This element is powered by ReactPlayer (GitHub link below).
-
-    from streamlit_elements import media
-
-    media.Player(url="https://www.youtube.com/watch?v=iik25wqIuFo", controls=False)
 
 with elements("style_mui_sx"):
 
