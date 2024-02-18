@@ -60,6 +60,11 @@ with col1:
     # Afișarea graficului în Streamlit
     st.pyplot(fig)
 
+    st.info("""
+    Aceste predicții folosesc modelul de netezire exponențială, care ia în considerare tendințele și 
+    sezonalitatea din datele istorice ale vânzărilor pentru a estima vânzările viitoare. Aceste estimări
+    pot ajuta compania în planificarea stocurilor și în strategiile de marketing pentru a răspunde mai bine cererii viitoare.
+    """)
 
 
 with col2:
