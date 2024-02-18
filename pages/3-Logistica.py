@@ -2,18 +2,12 @@ import streamlit as st
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import pydeck as pdk
 
 st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
 
-import streamlit as st
-import pandas as pd
-import numpy as np
-import pydeck as pdk
-
-st.set_page_config(layout="wide")
 
 # Definim coordonatele pentru centrul României și pentru Bailești
 center_of_romania = [45.9432, 24.9668]  # Coordonate aproximative pentru centrul României
