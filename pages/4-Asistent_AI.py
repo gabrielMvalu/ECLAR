@@ -20,7 +20,7 @@ with tab1:
     
     st.title('Analiza și Predicția Vânzărilor pentru Produse')
     
-    produs_selectat = st.selectbox('Alege un produs:', ('Mireasmă', 'Proaspăt', 'Parfumat', 'Zero'))
+    produs_selectat = st.sidebar.selectbox('Alege un produs:', ('Mireasmă', 'Proaspăt', 'Parfumat', 'Zero'))
     
     sales_data = {
         'Mireasmă': sales_mireasma,
