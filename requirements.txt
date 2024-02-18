@@ -10,3 +10,4 @@ streamlit-player
 typing-extensions
 streamlit-echarts
 streamlit_elements
+openai
