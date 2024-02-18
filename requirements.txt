@@ -11,3 +11,4 @@ typing-extensions
 streamlit-echarts
 streamlit_elements
 openai
+statsmodels.tsa.api
