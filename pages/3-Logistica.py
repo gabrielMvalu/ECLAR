@@ -22,7 +22,7 @@ st.divider()
 
 # Coordonatele pentru centrul României și pentru Bailești
 center_of_romania = [45.9432, 24.9668]
-bailesti_location = [44.01, 23.35]
+bailesti_location = [44.033049, 23.349555] 
 
 # Creăm un DataFrame cu puncte aleatorii în România
 df_random_points = pd.DataFrame({
