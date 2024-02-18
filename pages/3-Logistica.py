@@ -7,7 +7,7 @@ import random
 st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
-
+st.header(':rainbow[Harta livrarilor]')
 st.info("""
 Mai jos sunt prezentate două hărți interactive concepute pentru a transforma datele complexe ale comenzilor în 
 informații vizuale ușor de interpretat, cu scopul de a sprijini procesul de luare a deciziilor în cadrul 
