@@ -15,7 +15,7 @@ st.write(':violet[Bine ați venit la aplicația pentru completarea - Planului de
 
 tab1, tab2 = st.tabs(["Predictii viitoare", "Asistent AI"])
 
-with col1:
+with tab1:
     
     # Definirea datelor de vânzări
     sales_mireasma = [0, 0, 0, 0, 0, 120, 150, 100, 230, 240, 270, 265]
@@ -68,7 +68,7 @@ with col1:
     """)
 
 
-with col2:
+with tab2:
 
     with st.expander(" ℹ️ Mesaj Informativ ℹ️  "):
         st.write("""
