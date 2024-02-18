@@ -13,8 +13,8 @@ bailesti_location = [44.01, 23.35]  # Coordonate pentru Bailești
 
 # Creăm un DataFrame cu puncte aleatorii în România
 df_random_points = pd.DataFrame({
-    "latitude": np.random.uniform(low=44.00, high=48.0, size=20),  # Latitudini aleatorii în intervalul geografic al României
-    "longitude": np.random.uniform(low=23.30, high=29.0, size=20),  # Longitudini aleatorii în intervalul geografic al României
+    "latitude": np.random.uniform(low=42.00, high=47.3, size=35),  # Latitudini aleatorii în intervalul geografic al României
+    "longitude": np.random.uniform(low=23.30, high=28.0, size=20),  # Longitudini aleatorii în intervalul geografic al României
 })
 
 # Creăm un DataFrame pentru linii, care conectează Bailești cu fiecare punct aleatoriu
