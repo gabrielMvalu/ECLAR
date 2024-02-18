@@ -8,12 +8,25 @@ st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
 st.header(':rainbow[Harta livrarilor]')
-st.info("""
-Mai jos sunt prezentate două hărți interactive concepute pentru a transforma datele complexe ale comenzilor în 
+
+with elements("style_mui_sx"):
+
+    mui.Box("""
+        Mai jos sunt prezentate două hărți interactive concepute pentru a transforma datele complexe ale comenzilor în 
 informații vizuale ușor de interpretat, cu scopul de a sprijini procesul de luare a deciziilor în cadrul 
 organizației dumneavoastră.Aceste hărți oferă o perspectivă clară asupra distribuției geografice a vânzărilor
 și livrărilor, elemente esențiale în planificarea și optimizarea campaniilor de marketing.
-""")
+         """,
+        sx={
+            "bgcolor": "background.paper",
+            "boxShadow": 2,
+            "borderRadius": 5,
+            "p": 2,
+            "minWidth": 200,
+        }
+    )
+
+
 
 def hex_to_rgba(hex_color, alpha=255):
     """Converteste o culoare hexadecimale într-un tuple RGBA."""
