@@ -12,7 +12,8 @@ st.header(':blue[Pagina Principală]', divider='rainbow')
 st.write(':violet[Bine ați venit la aplicația pentru completarea - Planului de Afaceri! -]')
 
 
-col1, col2 = st.columns(2)
+
+tab1, tab2 = st.tabs(["Predictii viitoare", "Asistent AI"])
 
 with col1:
     
