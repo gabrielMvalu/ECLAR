@@ -27,7 +27,7 @@ df_lines = pd.DataFrame({
 view_state = pdk.ViewState(
     latitude=center_of_romania[0],
     longitude=center_of_romania[1],
-    zoom=5.5,
+    zoom=15.5,
     pitch=0
 )
 
