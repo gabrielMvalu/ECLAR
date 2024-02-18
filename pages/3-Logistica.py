@@ -42,7 +42,7 @@ view_state = pdk.ViewState(
     latitude=center_of_romania[0],
     longitude=center_of_romania[1],
     zoom=5.0,
-    pitch=20
+    pitch=50
 )
 
 # Layer pentru linii, cu culori personalizate în format RGBA
