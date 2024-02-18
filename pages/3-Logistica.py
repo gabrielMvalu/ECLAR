@@ -1,5 +1,4 @@
 import streamlit as st 
-import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
@@ -7,7 +6,6 @@ import pydeck as pdk
 st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
-
 
 # Coordonatele pentru centrul României și pentru Bailești
 center_of_romania = [45.9432, 24.9668]  # Coordonate aproximative pentru centrul României
@@ -21,8 +19,8 @@ df_random_points = pd.DataFrame({
 
 # Creăm un DataFrame pentru linii, care conectează Bailești cu fiecare punct aleatoriu
 df_lines = pd.DataFrame({
-    "source": [bailesti_location] * len(df_random_points),
-    "target": list(zip(df_random_points["latitude"], df_random_points["longitude"]))
+    "source": [[bailesti_location[1], bailesti_location[0]]] * len(df_random_points),  # Format corect [longitude, latitude]
+    "target": list(zip(df_random_points["longitude"], df_random_points["latitude"]))  # Format corect [longitude, latitude]
 })
 
 # Configurăm harta PyDeck
@@ -48,7 +46,7 @@ layer_bailesti = pdk.Layer(
     data=pd.DataFrame({"latitude": [bailesti_location[0]], "longitude": [bailesti_location[1]]}),
     get_position='[longitude, latitude]',
     get_color='[0, 0, 255, 160]',  # Albastru pentru a-l distinge
-    get_radius=10000,  # Un radius mai mare pentru a evidenția locația
+    get_radius=10000,  # Radius mai mare pentru a evidenția locația
 )
 
 # Layer pentru linii
