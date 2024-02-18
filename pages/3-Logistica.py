@@ -21,7 +21,7 @@ custom_colors_rgba = [hex_to_rgba(color) for color in custom_colors]
 
 
 
-col1, col2 = st.column(2)
+col1, col2 = st.columns(2)
 
 with col1:
 
