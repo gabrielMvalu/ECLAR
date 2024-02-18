@@ -8,20 +8,16 @@ st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
 
-
+# Creăm un DataFrame cu coloane pentru latitudine și longitudine
 df = pd.DataFrame({
-    "col1": np.random.randn(1000) / 50 + 44.01,
-    "col2": np.random.randn(1000) / 50 + 23.35,
+    "latitude": np.random.randn(1000) / 50 + 44.01,  # Am redenumit 'col1' în 'latitude'
+    "longitude": np.random.randn(1000) / 50 + 23.35,  # Am redenumit 'col2' în 'longitude'
     "col3": np.random.randn(1000) * 100,
     "col4": np.random.rand(1000, 4).tolist(),
 })
 
-st.map(df,
-    latitude='col11',
-    longitude='col2',
-    size='col3',
-    color='col4')
-
+# Utilizăm funcția 'st.map' doar cu coloanele de latitudine și longitudine
+st.map(df)
 
 
 
