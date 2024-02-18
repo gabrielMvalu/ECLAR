@@ -3,6 +3,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+
+st.set_page_config(layout="wide")
+st.image("./data/logoECLAR.png", width=100) 
+st.divider()
+
+
 df = pd.DataFrame({
     "col1": np.random.randn(1000) / 50 + 44.01,
     "col2": np.random.randn(1000) / 50 + 23.35,
@@ -11,15 +17,13 @@ df = pd.DataFrame({
 })
 
 st.map(df,
-    latitude='44.01',
-    longitude='23.35',
+    latitude='col11',
+    longitude='col2',
     size='col3',
     color='col4')
 
 
 
 
-st.set_page_config(layout="wide")
-st.image("./data/logoECLAR.png", width=100) 
-st.divider()
+
 
