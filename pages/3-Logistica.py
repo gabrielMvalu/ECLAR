@@ -9,10 +9,6 @@ st.image("./data/logoECLAR.png", width=100)
 st.divider()
 
 
-st.set_page_config(layout="wide")
-st.image("./data/logoECLAR.png", width=100) 
-st.divider()
-
 # Coordonatele pentru centrul României și pentru Bailești
 center_of_romania = [45.9432, 24.9668]  # Coordonate aproximative pentru centrul României
 bailesti_location = [44.01, 23.35]  # Coordonate pentru Bailești
