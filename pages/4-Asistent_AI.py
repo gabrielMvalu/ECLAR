@@ -25,7 +25,7 @@ with tab1:
     sales_data = {
         'Mireasmă': sales_mireasma,
         'Proaspăt': sales_proaspat,
-        'Parfumat': sales_parfamat,
+        'Parfumat': sales_parfumat,
         'Zero': sales_zero
     }
     
