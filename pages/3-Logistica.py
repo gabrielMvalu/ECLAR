@@ -12,7 +12,6 @@ def hex_to_rgba(hex_color, alpha=255):
 
 # Culori personalizate în format hexadecimale
 custom_colors = ["#f7cb39", "#4dc4be", "#ed6347", "#b0a989"]
-
 # Converteste culorile hexadecimale în RGBA
 custom_colors_rgba = [hex_to_rgba(color) for color in custom_colors]
 
@@ -37,8 +36,8 @@ df_lines = pd.DataFrame({
     "color": [random.choice(custom_colors_rgba) for _ in range(len(df_random_points))]  # Alege o culoare aleatorie în format RGBA pentru fiecare linie
 })
 
-# Configurăm harta PyDeck
-view_state = pdk.ViewState(
+# Configurăm harta PyDeck pentru linii
+view_state_lines = pdk.ViewState(
     latitude=center_of_romania[0],
     longitude=center_of_romania[1],
     zoom=5.5,
@@ -55,14 +54,12 @@ layer_lines = pdk.Layer(
     get_width=2,
 )
 
-# Renderăm harta
+# Renderăm harta pentru linii
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
-    initial_view_state=view_state,
+    initial_view_state=view_state_lines,
     layers=[layer_lines]
 ))
-
-
 
 # Coordonatele centrale pentru județele specificate
 coordonate_judete = {
@@ -75,20 +72,17 @@ coordonate_judete = {
 # Creăm un DataFrame pentru județele selectate
 df_judete = pd.DataFrame.from_dict(coordonate_judete, orient='index', columns=['latitude', 'longitude', 'procent_vanzari'])
 
-# Calculăm numărul de puncte pe baza procentului de vânzări (fiecare procent corespunde cu 10 puncte pentru vizibilitate)
-df_judete['numar_puncte'] = df_judete['procent_vanzari'].apply(lambda x: x * 10)
-
-# Generăm punctele pentru Heatmap
+# Generăm punctele pentru Heatmap pe baza procentului de vânzări
 puncte_heatmap = []
 for index, row in df_judete.iterrows():
-    for _ in range(row['numar_puncte']):
+    for _ in range(int(row['procent_vanzari'] * 10)):  # Multiplicăm procentul cu 10 pentru a avea un număr suficient de puncte
         puncte_heatmap.append({'latitude': np.random.normal(row['latitude'], 0.05),
                                'longitude': np.random.normal(row['longitude'], 0.05)})
 
 df_heatmap = pd.DataFrame(puncte_heatmap)
 
-# Configurăm harta PyDeck
-view_state = pdk.ViewState(
+# Configurăm harta PyDeck pentru Heatmap
+view_state_heatmap = pdk.ViewState(
     latitude=45.9432,  # Centrul geografic al României
     longitude=24.9668,
     zoom=6,
@@ -104,10 +98,10 @@ heatmap_layer = pdk.Layer(
     get_weight="1"
 )
 
-# Renderăm harta
+# Renderăm harta pentru Heatmap
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
-    initial_view_state=view_state,
+    initial_view_state=view_state_heatmap,
     layers=[heatmap_layer]
 ))
 
