@@ -26,8 +26,8 @@ bailesti_location = [44.033049, 23.349555]
 
 # Creăm un DataFrame cu puncte aleatorii în România
 df_random_points = pd.DataFrame({
-    "latitude": np.random.uniform(low=42.01, high=47.0, size=40),
-    "longitude": np.random.uniform(low=22.0, high=28.0, size=40),
+    "latitude": np.random.uniform(low=44.01, high=47.0, size=30),
+    "longitude": np.random.uniform(low=23.0, high=28.0, size=30),
 })
 
 # Creăm un DataFrame pentru linii, care conectează Bailești cu fiecare punct aleatoriu
@@ -41,8 +41,8 @@ df_lines = pd.DataFrame({
 view_state = pdk.ViewState(
     latitude=center_of_romania[0],
     longitude=center_of_romania[1],
-    zoom=5.9,
-    pitch=70
+    zoom=5.5,
+    pitch=45
 )
 
 # Layer pentru linii, cu culori personalizate în format RGBA
