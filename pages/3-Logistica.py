@@ -8,6 +8,7 @@ df = pd.DataFrame({
     "col2": np.random.randn(1000) / 50 + 23.35,
     "col3": np.random.randn(1000) * 100,
     "col4": np.random.rand(1000, 4).tolist(),
+})
 
 st.map(df,
     latitude='44.01',
