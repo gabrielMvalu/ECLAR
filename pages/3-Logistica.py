@@ -4,6 +4,18 @@ import numpy as np
 import pydeck as pdk
 import random
 
+def hex_to_rgba(hex_color, alpha=255):
+    """Converteste o culoare hexadecimale într-un tuple RGBA."""
+    hex_color = hex_color.lstrip('#')
+    lv = len(hex_color)
+    return tuple(int(hex_color[i:i + lv // 3], 16) for i in range(0, lv, lv // 3)) + (alpha,)
+
+# Culori personalizate în format hexadecimale
+custom_colors = ["#f7cb39", "#4dc4be", "#ed6347", "#b0a989"]
+
+# Converteste culorile hexadecimale în RGBA
+custom_colors_rgba = [hex_to_rgba(color) for color in custom_colors]
+
 st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
 st.divider()
@@ -18,15 +30,11 @@ df_random_points = pd.DataFrame({
     "longitude": np.random.uniform(low=20.0, high=29.0, size=20),
 })
 
-# Culori personalizate pentru liniile dintre Bailești și punctele aleatorii
-custom_colors = ["#f7cb39", "#4dc4be", "#ed6347", "#b0a989"]
-
 # Creăm un DataFrame pentru linii, care conectează Bailești cu fiecare punct aleatoriu
-# și asignăm fiecărei linii o culoare aleasă aleator din lista custom_colors
 df_lines = pd.DataFrame({
     "source": [[bailesti_location[1], bailesti_location[0]]] * len(df_random_points),
     "target": list(zip(df_random_points["longitude"], df_random_points["latitude"])),
-    "color": [random.choice(custom_colors) for _ in range(len(df_random_points))],  # Alege o culoare aleatorie pentru fiecare linie
+    "color": [random.choice(custom_colors_rgba) for _ in range(len(df_random_points))]  # Alege o culoare aleatorie în format RGBA pentru fiecare linie
 })
 
 # Configurăm harta PyDeck
@@ -37,25 +45,7 @@ view_state = pdk.ViewState(
     pitch=45
 )
 
-# Layer pentru punctele aleatorii
-layer_random_points = pdk.Layer(
-    'ScatterplotLayer',
-    data=df_random_points,
-    get_position='[longitude, latitude]',
-    get_color='[200, 200, 200, 160]',  # Culoare gri pentru punctele aleatorii
-    get_radius=5000,
-)
-
-# Layer pentru Bailești
-layer_bailesti = pdk.Layer(
-    'ScatterplotLayer',
-    data=pd.DataFrame({"latitude": [bailesti_location[0]], "longitude": [bailesti_location[1]]}),
-    get_position='[longitude, latitude]',
-    get_color='[0, 0, 255, 160]',  # Albastru pentru Bailești
-    get_radius=10000,
-)
-
-# Layer pentru linii, cu culori personalizate
+# Layer pentru linii, cu culori personalizate în format RGBA
 layer_lines = pdk.Layer(
     "LineLayer",
     data=df_lines,
@@ -69,7 +59,7 @@ layer_lines = pdk.Layer(
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
     initial_view_state=view_state,
-    layers=[layer_random_points, layer_bailesti, layer_lines]
+    layers=[layer_lines]
 ))
 
 
