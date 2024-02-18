@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 import random
+from streamlit_elements import elements, mui, html
 
 st.set_page_config(layout="wide")
 st.image("./data/logoECLAR.png", width=100) 
