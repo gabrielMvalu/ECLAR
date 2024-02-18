@@ -92,7 +92,7 @@ with col2:
     view_state_heatmap = pdk.ViewState(
         latitude=45.9432,  # Centrul geografic al României
         longitude=24.9668,
-        zoom=6,
+        zoom=5,
         pitch=0
     )
     
