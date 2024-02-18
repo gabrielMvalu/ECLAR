@@ -9,7 +9,7 @@ from pyecharts.charts import Pie, Line
 
 
 st.set_page_config(layout="wide")
-st.title(':blue[ECLAR SRL -live sales-]')
+st.image("./data/logoECLAR.png", width=100) 
 st.divider()
 
 
