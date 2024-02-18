@@ -49,6 +49,47 @@ with tab1:
     pot ajuta compania în planificarea stocurilor și în strategiile de marketing pentru a răspunde mai bine cererii viitoare.
     """)
 
+    
+     with st.expander(" ℹ️ Mesaj Informativ ℹ️  "):
+        st.write("""
+          Netezirea exponențială este o tehnică utilizată în analiza seriilor de timp pentru a face predicții pe baza datelor istorice.
+          Este o metodă de netezire care acordă ponderi care descresc exponențial pentru observațiile mai vechi, acordând mai multă importanță 
+          datelor recente și mai puțină datelor mai vechi. Această abordare este utilă în contexte unde este important să se țină cont de tendințele
+          și sezonalitățile din date.
+
+Tendințe
+Tendințele reprezintă modelele generale sau direcțiile în care se îndreaptă datele de-a lungul timpului. Pot fi ascendente,
+descendente sau relativ stabile. Modelul de netezire exponențială care ia în considerare tendințele (denumit uneori "netezire
+exponențială dublă") ajustează predicțiile nu doar pe baza valorilor recente, ci și a direcției generale a schimbărilor din date.
+Sezonalitate
+Sezonalitatea se referă la modelele care se repetă la intervale regulate de timp, cum ar fi variațiile sezoniere în vânzări
+sau traficul de consumatori. Netezirea exponențială care ia în considerare și sezonalitatea (cunoscută și sub denumirea de 
+"netezire exponențială triplă" sau modelul Holt-Winters) include un component suplimentar pentru a modela și ajusta aceste modele ciclice.
+Cum funcționează?
+În netezirea exponențială simplă, fiecărei observații i se atribuie o pondere, iar aceste ponderi scad exponențial pentru observațiile mai vechi. Formula de bază este:
+
+St=αxt+(1−α)St−1
+
+unde:
+•	St este valoarea netezită pentru perioada curentă
+•	xt este valoarea observată în perioada curentă
+•	α este parametrul de netezire (între 0 și 1)
+•	1St−1 este valoarea netezită din perioada anterioară
+Pentru a include tendințele, modelul extinde această formulă pentru a ajusta și schimbarea dintre perioade. 
+Pentru sezonalitate, modelul introduce un factor suplimentar care ajustează predicțiile pe baza pattern-urilor sezoniere observate în date.
+Avantaje și Limitări
+•	Avantaje:
+•	Flexibilitate în modelarea tendințelor și sezonalităților
+•	Relativ simplu de implementat și de înțeles
+•	Bine adaptat pentru date cu modele clare și repetate
+•	Limitări:
+•	Poate fi sensibil la outlieri
+•	Necesită o cantitate suficientă de date istorice pentru a modela în mod eficient tendințele și sezonalitățile
+•	Poate avea dificultăți în modelarea schimbărilor brusce sau a punctelor de rupere în date
+
+        """)
+
+
 
 with tab2:
 
