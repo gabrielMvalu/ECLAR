@@ -19,7 +19,7 @@ organizației dumneavoastră.Aceste hărți oferă o perspectivă clară asupra 
 și livrărilor, elemente esențiale în planificarea și optimizarea campaniilor de marketing.
          """,
         sx={
-            "bgcolor": "background.paper",
+            "bgcolor": "background.blue",
             "boxShadow": 2,
             "borderRadius": 5,
             "p": 2,
