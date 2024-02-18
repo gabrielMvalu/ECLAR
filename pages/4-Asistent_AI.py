@@ -1,65 +1,47 @@
-from openai import OpenAI
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from statsmodels.tsa.api import ExponentialSmoothing
+import plotly.graph_objects as go
+from openai import OpenAI
 
 
 st.set_page_config(layout="wide")
-
-st.header(':blue[Pagina Principală]', divider='rainbow')
-st.write(':violet[Bine ați venit la aplicația pentru completarea - Planului de Afaceri! -]')
-
-
+st.header('Pagina Principală')
+st.write('Bine ați venit la aplicația pentru completarea Planului de Afaceri!')
 
 tab1, tab2 = st.tabs(["Predictii viitoare", "Asistent AI"])
 
 with tab1:
-    
-    # Definirea datelor de vânzări
     sales_mireasma = [0, 0, 0, 0, 0, 120, 150, 100, 230, 240, 270, 265]
     sales_proaspat = [80, 100, 120, 140, 160, 180, 200, 220, 200, 180, 160, 140]
     sales_parfumat = [50, 70, 90, 110, 130, 120, 110, 100, 90, 80, 70, 60]
     sales_zero = [20, 100, 60, 40, 120, 100, 110, 60, 40, 80, 10, 70]
     
-    # Setarea titlului și a layout-ului aplicației Streamlit
     st.title('Analiza și Predicția Vânzărilor pentru Produse')
-    st.sidebar.header('Setări')
     
-    # Selecția produsului pentru analiză
-    produs_selectat = st.sidebar.selectbox('Alege un produs:', ('Mireasmă', 'Proaspăt', 'Parfumat', 'Zero'))
+    produs_selectat = st.selectbox('Alege un produs:', ('Mireasmă', 'Proaspăt', 'Parfumat', 'Zero'))
     
-    # Maparea selecției la setul de date corespunzător
     sales_data = {
         'Mireasmă': sales_mireasma,
         'Proaspăt': sales_proaspat,
-        'Parfumat': sales_parfumat,
+        'Parfumat': sales_parfamat,
         'Zero': sales_zero
     }
     
-    # Preluarea datelor pentru produsul selectat
     sales_selected = sales_data[produs_selectat]
     
-    # Crearea modelului de netezire exponențială și predicția vânzărilor viitoare
     model = ExponentialSmoothing(sales_selected, trend='add', seasonal='add', seasonal_periods=6).fit()
     pred_sales = model.forecast(3)
     
-    # Crearea unei figuri pentru grafic
-    fig, ax = plt.subplots()
+    # Crearea graficului folosind Plotly
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=np.arange(len(sales_selected)), y=sales_selected, mode='lines+markers', name='Vânzări Istorice'))
+    fig.add_trace(go.Scatter(x=np.arange(len(sales_selected), len(sales_selected) + 3), y=pred_sales, mode='lines+markers', name='Predicții Vânzări', line=dict(dash='dash')))
     
-    # Adăugarea datelor istorice și a predicțiilor pe grafic
-    ax.plot(sales_selected, label='Vânzări Istorice', marker='o')
-    ax.plot(np.arange(len(sales_selected), len(sales_selected) + 3), pred_sales, label='Predicții Vânzări', marker='o', linestyle='--')
+    fig.update_layout(title=f'Analiza și Predicția Vânzărilor pentru {produs_selectat}', xaxis_title='Perioada', yaxis_title='Vânzări', autosize=False, width=800, height=600)
     
-    # Setarea titlului și a legendei
-    ax.set_title(f'Analiza și Predicția Vânzărilor pentru {produs_selectat}')
-    ax.set_xlabel('Perioada')
-    ax.set_ylabel('Vânzări')
-    ax.legend()
-    
-    # Afișarea graficului în Streamlit
-    st.pyplot(fig)
+    st.plotly_chart(fig)
 
     st.info("""
     Aceste predicții folosesc modelul de netezire exponențială, care ia în considerare tendințele și 
