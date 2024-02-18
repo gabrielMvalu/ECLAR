@@ -64,3 +64,50 @@ st.pydeck_chart(pdk.Deck(
 
 
 
+# Coordonatele centrale pentru județele specificate
+coordonate_judete = {
+    'Dolj': [44.3189, 23.7949, 20],  # 20% din vânzări
+    'Gorj': [45.0469, 23.2749, 10],  # 10% din vânzări
+    'Cluj': [46.7712, 23.6236, 22],  # 22% din vânzări
+    'Brașov': [45.6580, 25.6012, 27]  # 27% din vânzări
+}
+
+# Creăm un DataFrame pentru județele selectate
+df_judete = pd.DataFrame.from_dict(coordonate_judete, orient='index', columns=['latitude', 'longitude', 'procent_vanzari'])
+
+# Calculăm numărul de puncte pe baza procentului de vânzări (fiecare procent corespunde cu 10 puncte pentru vizibilitate)
+df_judete['numar_puncte'] = df_judete['procent_vanzari'].apply(lambda x: x * 10)
+
+# Generăm punctele pentru Heatmap
+puncte_heatmap = []
+for index, row in df_judete.iterrows():
+    for _ in range(row['numar_puncte']):
+        puncte_heatmap.append({'latitude': np.random.normal(row['latitude'], 0.05),
+                               'longitude': np.random.normal(row['longitude'], 0.05)})
+
+df_heatmap = pd.DataFrame(puncte_heatmap)
+
+# Configurăm harta PyDeck
+view_state = pdk.ViewState(
+    latitude=45.9432,  # Centrul geografic al României
+    longitude=24.9668,
+    zoom=6,
+    pitch=0
+)
+
+# Creăm Heatmap Layer
+heatmap_layer = pdk.Layer(
+    'HeatmapLayer',
+    data=df_heatmap,
+    get_position='[longitude, latitude]',
+    opacity=0.9,
+    get_weight="1"
+)
+
+# Renderăm harta
+st.pydeck_chart(pdk.Deck(
+    map_style='mapbox://styles/mapbox/light-v9',
+    initial_view_state=view_state,
+    layers=[heatmap_layer]
+))
+
